@@ -1,6 +1,9 @@
-#This script is for creating a database of movies 
-apikey1notinuse = "21f2a1c4"
-apikey1 = "be18616c"
+#This script is for creating a database of movies
+# 
+# The API used is the omdb api to extract movie information by title
+# On the website it is easy to generate a key, with one key 
+apikey1 = "21f2a1c4"
+apikey1not = "be18616c"
 #the movies to extract have to be in a csv list under this path with a "," as delimiter
 path_movies = 'D:\Sofia_courses\Database\list_of_all_movies_edited.csv'
 #the location where the json with the information will be saved, the information is saved additionally
@@ -25,8 +28,7 @@ def search_movie(title):
     url = serviceurl + urllib.parse.urlencode({'t': title})+ "&" +urllib.parse.urlencode({'apikey':apikey1})
     
     
-    #print(url)
-    #fetch the data
+    #fetch the data, with some try again, when the data is not loaded to prevent a crash of the script
     try:
         uh = urllib.request.urlopen(url, timeout = 5)
     except:
@@ -106,6 +108,12 @@ def run_movie_extraction():
         print("there are >",len(titles_left),"< movies left")
         pickle_leftover_movie_list(titles_left)
 
-#use this tho pickle all movies, never do this again!
+#use this to pickle all movies, never do this again!
+#once all movie titles are pickled in a list the movie extraction will load this list and delete every processed 
+#movie title from this list. By doing so a crash of the programm does not lead in checking every movie again
 #######pickle_whole_movie_list()
+
+#run extraction, needed is just a list pickeled with all the movie titles that should be extracted
 run_movie_extraction()
+
+#all the information is then saved in a JSON file with the movie title as a key to the information
