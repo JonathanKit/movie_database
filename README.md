@@ -9,3 +9,6 @@ The script movies_to_json.py uses all the movies list to extract the information
 4.	SAVE-DATABASE Save the data in a Database with MySQL <br />
 These two steps are implemented in the info_json_to_movies.py script
 
+## Database structure:
+
+![Structure](https://github.com/[JonathanKit]/[movie_database]/blob/[main]/database_structure.svg?raw=true)
