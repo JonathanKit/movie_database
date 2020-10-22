@@ -11,4 +11,4 @@ These two steps are implemented in the info_json_to_movies.py script
 
 ## Database structure:
 
-![Structure](https://github.com/[JonathanKit]/[movie_database]/blob/[main]/database_structure.svg?raw=true)
+![Structure](/database_structure.svg)
